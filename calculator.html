@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Calculator</title>
+</head>
+<body>
+   <div class="calculator">
+    <input type="text" placeholder="0" id="result">
+
+    <div>
+        <button class="clear" onclick="clearResult()">Clear</button>
+        <button class="delete" onclick="deleteResult()">Delete</button>
+        <button class="percentage" onclick="insertValue('%')">%</button>
+        <button class="operator" onclick="insertValue('/')">÷</button>
+    </div>
+
+    <div>
+        <button onclick="insertValue('7')">7</button>
+        <button onclick="insertValue('8')">8</button>
+        <button onclick="insertValue('9')">9</button>
+        <button class="operator" onclick="insertValue('*')">x</button>
+    </div>
+    <div>
+        <button onclick="insertValue('4')">4</button>
+        <button onclick="insertValue('5')">5</button>
+        <button onclick="insertValue('6')">6</button>
+        <button class="operator" onclick="insertValue('-')">-</button>
+    </div>
+    <div>
+        <button onclick="insertValue('1')">1</button>
+        <button onclick="insertValue('2')">2</button>
+        <button onclick="insertValue('3')">3</button>
+        <button class="operator" onclick="insertValue('+')">+</button>
+    </div>
+    <div>
+        <button onclick="insertValue('00')">00</button>
+        <button onclick="insertValue('0')">0</button>
+        <button onclick="insertValue('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+    </div>
+   </div>
+
+   <script>
+    function insertValue(value){
+        result.value += value;
+    }
+    function clearResult(){
+        result.value = '';
+    }
+
+    function deleteResult(){
+        result.value = result.value.slice(0, -1);
+    }
+
+    function calculate(){
+        try{
+            result.value = eval(result.value);
+
+        } catch (error){
+            result.value = 'Error';
+        }
+    }
+   </script>
+</body>
+</html>
